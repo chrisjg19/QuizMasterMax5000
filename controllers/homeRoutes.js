@@ -14,13 +14,13 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-router.get("/signup", (req, res) => {
+router.get("/sign-up", (req, res) => {
   // if (req.session.signup) {
   //   res.redirect("/");
   //   return;
   // }
 
-  res.render("signup");
+  res.render("sign-up");
 });
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const  User  = require("../../models/User");
 const {sendSignupMail}= require("../../utils/helpers");
 router.post("/login", async (req, res) => {
   try {
@@ -60,7 +60,7 @@ username:
     }
     // user oluşturulması lazım password bcrypt 'le olacak
     let userObj = await User.create({
-      name: username,
+      username: username,
       email: email,
       password: password,
     });
