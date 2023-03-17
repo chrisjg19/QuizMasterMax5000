@@ -41,4 +41,13 @@ router.get("/sign-up", (req, res) => {
   res.render("sign-up");
 });
 
+router.get("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(402).end();
+  }
+});
 module.exports = router;
