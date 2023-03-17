@@ -1,0 +1,65 @@
+{{>header}}
+<main
+  class="container quiz-options col-md-4 d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="input-group justify-content-center">
+    <div class="input-group-prepend">
+      <button
+        class="btn btn-outline-warning dropdown dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Choose a category
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Programming</a>
+        <a class="dropdown-item" href="#">Networking</a>
+        <a class="dropdown-item" href="#">DevOps</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group justify-content-center">
+    <div class="input-group-prepend">
+      <button
+        class="btn btn-outline-warning dropdown dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Choose a tag
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">HTML</a>
+        <a class="dropdown-item" href="#">CSS</a>
+        <a class="dropdown-item" href="#">JavaScript</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group justify-content-center">
+    <div class="input-group-prepend">
+      <button
+        class="btn btn-outline-warning dropdown dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Choose difficulty
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Easy</a>
+        <a class="dropdown-item" href="#">Medium</a>
+        <a class="dropdown-item" href="#">Hard</a>
+      </div>
+    </div>
+  </div>
+
+  <button id="fetch-quiz-button" class="btn btn-warning start-btn">
+    Start Quiz
+  </button>
+</main>

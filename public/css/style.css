@@ -1,0 +1,32 @@
+body {
+  background-color: #000000;
+  color: #e9ecef;
+  font-family: "Noto Sans Lepcha", sans-serif;
+}
+
+h1 {
+  font-family: "Press Start 2P", sans-serif;
+  color: #ffc300;
+}
+
+.nav-link {
+  color: #e9ecef;
+}
+
+.quiz-options {
+  margin-top: 30px;
+}
+
+.dropdown {
+  margin: 20px;
+}
+
+.start-btn {
+  margin-top: 20px;
+  padding: 15px;
+}
+
+.input {
+  background-color: #000000;
+  border-color: #ffc300;
+}

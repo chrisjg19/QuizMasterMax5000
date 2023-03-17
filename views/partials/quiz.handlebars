@@ -1,0 +1,14 @@
+<!-- Form to handle quiz -->
+<script id="quiz-template" type="text/x-handlebars-template">
+    {{#each questions}}
+    <div class="question">
+        <h2>{{this.question}}</h2>
+        {{#each this.answers}}
+        <input type="radio" name="{{../this.id}}" value="{{this}}">
+        <label>{{this}}</label>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+
+const quizTemplate = Handlebars.compile(document.getElementById("quiz-template").innerHTML);
