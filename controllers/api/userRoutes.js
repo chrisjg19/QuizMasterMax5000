@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const  User  = require("../../models/User");
 const {sendSignupMail}= require("../../utils/helpers");
 router.post("/login", async (req, res) => {
   try {
@@ -32,7 +32,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -60,7 +60,7 @@ username:
     }
     // user oluşturulması lazım password bcrypt 'le olacak
     let userObj = await User.create({
-      name: username,
+      username: username,
       email: email,
       password: password,
     });
