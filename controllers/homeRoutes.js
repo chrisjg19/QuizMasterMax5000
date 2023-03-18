@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../models");
+const Feedback  = require("../models/Feedback");
 const withAuth = require("../utils/auth");
 
 
@@ -13,7 +14,7 @@ router.get("/", withAuth, async (req, res) => {
     const currentUser=await User.findByPk(req.session.user_id,{
       attributes:["id", "email", "username"]
     });
-  console.log(currentUser)
+  //console.log(currentUser)
     res.render("homepage", {
       users,
       username:currentUser.username,
@@ -40,8 +41,28 @@ router.get("/sign-up", (req, res) => {
 
   res.render("sign-up");
 });
+router.get("/feedback",withAuth, async (req, res) => {
+  console.log("in feedback")
+  if (!req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  const feedbacks=await Feedback.findAll({
+    raw: true,
+    nest:true,
 
-router.get("/logout", (req, res) => {
+    include:[
+        {
+            model:User,
+            attributes: { exclude: ["password"] },
+    }]
+    })
+    res.render("feedback",{feedbacks:feedbacks});
+
+ 
+
+});
+router.get("/logout",withAuth, (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
