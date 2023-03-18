@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User=require("./User")
+
 class Feedback extends Model {
 
 }
@@ -21,8 +22,7 @@ Feedback.init(
     message: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-
+    }
 
   },
   {

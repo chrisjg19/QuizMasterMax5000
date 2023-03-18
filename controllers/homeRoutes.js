@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../models");
+const Feedback  = require("../models/Feedback");
 const withAuth = require("../utils/auth");
 
 
@@ -40,14 +41,26 @@ router.get("/sign-up", (req, res) => {
 
   res.render("sign-up");
 });
-router.get("/feedback",withAuth, (req, res) => {
+router.get("/feedback",withAuth, async (req, res) => {
   console.log("in feedback")
-  if (req.session.logged_in) {
+  if (!req.session.logged_in) {
     res.redirect("/");
     return;
   }
+  const feedbacks=await Feedback.findAll({
+    raw: true,
+    nest:true,
 
- res.render("feedback");
+    include:[
+        {
+            model:User,
+            attributes: { exclude: ["password"] },
+    }]
+    })
+    res.render("feedback",{feedbacks:feedbacks});
+
+ 
+
 });
 router.get("/logout",withAuth, (req, res) => {
   if (req.session.loggedIn) {

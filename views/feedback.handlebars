@@ -1,0 +1,20 @@
+<table id="Table">
+
+<thead>
+ 
+  <th>Email</th>
+  <th>Username</th>
+  <th>Message</th>
+  <th>Date</th>
+</thead>
+<tbody>
+{{#each feedbacks }}
+  <tr>
+    <td>{{user.email}}</td>
+    <td>{{user.username}}</td>
+    <td>{{message}}</td>
+    <td>{{createdAt}}</td>
+  </tr>
+  {{/each}}
+</tbody>
+</table>
