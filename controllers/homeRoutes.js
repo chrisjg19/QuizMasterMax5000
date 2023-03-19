@@ -11,14 +11,17 @@ router.get("/", withAuth, async (req, res) => {
       order: [["username", "ASC"]],
     });
     const users = userData.map((project) => project.get({ plain: true }));
-    const currentUser=await User.findByPk(req.session.user_id,{
-      attributes:["id", "email", "username"]
-    });
+    // const currentUser=await User.findByPk(req.session.user_id,{
+    //   attributes:["id", "email", "username"]
+    if (req.session.logged_in) {
+      return res.redirect("/dashboard")
+    }
+    // });
   //console.log(currentUser)
     res.render("homepage", {
       users,
-      username:currentUser.username,
-      logged_in: req.session.logged_in,
+      // username:currentUser.username,
+      // logged_in: req.session.logged_in,
     });
   } catch (error) {
     res.status(500).json(error);
@@ -61,6 +64,9 @@ router.get("/feedback",withAuth, async (req, res) => {
 
  
 
+});
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard")
 });
 router.get("/logout",withAuth, (req, res) => {
   if (req.session.loggedIn) {
