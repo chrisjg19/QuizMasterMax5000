@@ -4,17 +4,41 @@ body {
   font-family: "Noto Sans Lepcha", sans-serif;
 }
 
-h1 {
+h1,
+h4 {
   font-family: "Press Start 2P", sans-serif;
+}
+
+h1 {
   color: #ffc300;
+}
+
+h4 {
+  color: #e9ecef;
+}
+
+a:link {
+  color: #ffc300;
+}
+
+a:hover {
+  color: #e9ecef;
+}
+
+a:visited {
+  color: #ffc300;
+}
+
+a:active {
+  color: #e9ecef;
+}
+
+.header {
+  border-bottom: 1px solid;
 }
 
 .nav-link {
   color: #e9ecef;
-}
-
-.quiz-options {
-  margin-top: 30px;
 }
 
 .dropdown {
@@ -29,4 +53,10 @@ h1 {
 .input {
   background-color: #000000;
   border-color: #ffc300;
+}
+
+.welcome {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 18px;
+  color: #ffc300;
 }
