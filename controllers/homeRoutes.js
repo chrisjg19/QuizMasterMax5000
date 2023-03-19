@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models");
 const Feedback  = require("../models/Feedback");
 const withAuth = require("../utils/auth");
-
+const dashboard=require("../views/dashboard")
 
 router.get("/", withAuth, async (req, res) => {
   try {
@@ -41,7 +41,7 @@ router.get("/sign-up", (req, res) => {
 
   res.render("sign-up");
 });
-router.get("/feedback",withAuth, async (req, res) => {
+router.get("/feedback", withAuth, async (req, res) => {
   console.log("in feedback")
   if (!req.session.logged_in) {
     res.redirect("/");
@@ -57,9 +57,8 @@ router.get("/feedback",withAuth, async (req, res) => {
             attributes: { exclude: ["password"] },
     }]
     })
-    res.render("feedback",{feedbacks:feedbacks});
+    res.render("feedback",{feedbacks:feedbacks, userId:req.session.user_id});
 
- 
 
 });
 router.get("/logout",withAuth, (req, res) => {

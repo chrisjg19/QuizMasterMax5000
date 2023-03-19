@@ -18,7 +18,7 @@ router.post("/" , async  (req,res) =>{
         message: message,
       
       }).then(async feedbackObj=>{
-  //It is providing to send e-mail with nodemailer
+  //
       let userObj =await User.findOne({
         where:{
             id:user_id,
