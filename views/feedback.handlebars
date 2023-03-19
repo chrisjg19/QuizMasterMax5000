@@ -1,0 +1,37 @@
+<header class="jumbotron">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="text-white">
+      {{> navigation }}
+<div class="header mb-5">
+      <h1 class="display-3 m-2">Quiz Master Max</h1>
+      <h4 class="text-center mb-4">A quiz app for developing developers</h4>
+      <p class="text-center welcome pb-2">Welcome {{username}}</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="d-flex justify-content-center">
+<section>
+  {{#unless loggedIn}}
+  
+    <h2>Create new Feedback</h2>
+    <form class="feedbackFormHandler">
+      
+        <div>
+            {{!-- <label for="Feedback"></label> --}}
+            <textarea rows="10" cols="60" style="" id="messageInput"></textarea>
+            <textarea id="userIdInput" style="display:none" >
+              {{userId}}
+            </textarea>
+        </div>
+        <button type="submit"  class="btn btn-warning mt-3" >Send Feedback</button>
+    </form>
+ {{/unless}}
+    
+ {{> feedbacks }}
+</section>
+<script src="/js/feedback.js"></script>
+</div>
+</div>

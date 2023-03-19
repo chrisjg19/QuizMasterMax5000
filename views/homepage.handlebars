@@ -1,2 +1,36 @@
+<header class="jumbotron">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="text-white">
+      {{> navigation }}
+      <div class="header mb-5">
+      <h1 class="display-3 m-2">Quiz Master Max</h1>
+      <h4 class="text-center mb-4">A quiz app for developing developers</h4>
+      <p class="text-center welcome pb-2">Welcome {{username}}</p>
+      </div>
 
-{{> header }}
+      <div class="container col-8">
+        <div class="text-center">
+          <div>
+            <h3>What would you like to do?</h3>
+          </div>
+            <div class="d-flex justify-content-evenly m-5">
+          <div>
+            <button id="take-a-quiz" class="btn btn-warning take-a-quiz" type="submit" href="/dashboard">Take a quiz</button>
+            <script type="text/javascript">document.getElementById("take-a-quiz").onclick = function () {location.href = "/dashboard"; };</script>
+          </div>
+          <div>
+            <button id="post-feedback" class="btn btn-warning post-feedback" type="submit" href="/feedback">Post feedback</button>
+            <script type="text/javascript">document.getElementById("post-feedback").onclick = function () {location.href = "/feedback"; };</script>
+          </div>
+          </div>
+          <div>
+            <img class="m-3" src="https://media.giphy.com/media/aJyBC3mhe9qO4/giphy.gif">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</header>
