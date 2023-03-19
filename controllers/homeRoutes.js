@@ -10,19 +10,6 @@ router.get("/", withAuth, async (req, res) => {
       order: [["username", "ASC"]],
     });
     const users = userData.map((project) => project.get({ plain: true }));
-<<<<<<< HEAD
-    // const currentUser=await User.findByPk(req.session.user_id,{
-    //   attributes:["id", "email", "username"]
-    if (req.session.logged_in) {
-      return res.redirect("/dashboard")
-    }
-    // });
-  //console.log(currentUser)
-    res.render("homepage", {
-      users,
-      // username:currentUser.username,
-      // logged_in: req.session.logged_in,
-=======
     const currentUser = await User.findByPk(req.session.user_id, {
       attributes: ["id", "email", "username"],
     });
@@ -31,7 +18,6 @@ router.get("/", withAuth, async (req, res) => {
       users,
       username: currentUser.username,
       logged_in: req.session.logged_in,
->>>>>>> f3af702f79e3dca6f5c4b25ae23c3ec51666ba12
     });
   } catch (error) {
     res.status(500).json(error);
@@ -78,14 +64,7 @@ router.get("/feedback", withAuth, async (req, res) => {
   });
   res.render("feedback", { feedbacks: feedbacks });
 });
-<<<<<<< HEAD
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard")
-});
-router.get("/logout",withAuth, (req, res) => {
-=======
 router.get("/logout", withAuth, (req, res) => {
->>>>>>> f3af702f79e3dca6f5c4b25ae23c3ec51666ba12
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
