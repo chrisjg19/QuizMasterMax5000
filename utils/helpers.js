@@ -6,7 +6,7 @@ module.exports = {
       from: process.env.MAILSENDER_ADDR,
       to: email,
       subject: "Welcome to Quiz App",
-      text: "We are happy to see you here.You will learn lots of things.You will have time to improve yourelf.Lets start!!",
+      text: "We are happy to see you here.You will learn lots of things.You will have time to improve yourself.Lets start!!",
       html: "<p>Learn more about quiz app and take questions!!</p>",
     };
     let transporter = nodemailer.createTransport({
@@ -31,7 +31,7 @@ module.exports = {
       to: email,
       subject: "Feedback to Quiz App",
       text: _message,
-      html: "<p>Learn more about quiz app and take questions!!</p>",
+      html: "<p>We received your feedback!Thank you so much!</p>",
     };
     let transporter = nodemailer.createTransport({
       service: "gmail",

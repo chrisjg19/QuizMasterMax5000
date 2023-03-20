@@ -4,18 +4,20 @@ const Feedback = require("../../models/Feedback");
 const { sendFeedbackMail } = require("../../utils/helpers");
 
 //post
-router.post("/", async (req, res) => {
-  let { user_id, message } = req.body;
-
-  Feedback.create({
-    user_id: user_id,
-    message: message,
-  })
-    .then(async (feedbackObj) => {
-      //
-      let userObj = await User.findOne({
-        where: {
-          id: user_id,
+router.post("/" , async  (req,res) =>{
+    
+        let {user_id, message} = req.body;
+        
+    
+     Feedback.create({
+        user_id: user_id,
+        message: message,
+      
+      }).then(async feedbackObj=>{
+  //
+      let userObj =await User.findOne({
+        where:{
+            id:user_id,
         },
         attributes: { exclude: ["password"] },
       });
