@@ -1,20 +1,21 @@
-<table id="Table">
+{{> header}}
+<section  class="container d-flex justify-content-center align-items-center">
+  
+    <h2>Create new Feedback</h2>
+    <form class="feedbackFormHandler">
+      
+        <div>
+            <label for="">Feedback</label>
+            <textarea rows="10" cols="60"  id="messageInput"></textarea>
+            <textarea id="userIdInput" style="display:none" >{{userId}}</textarea>
+        </div>
+        <button type="submit"  class="btn btn-danger" >Send Feedback</button>
+    </form>
+ </section>
+<section  class="container d-flex justify-content-center align-items-center">
 
-<thead>
- 
-  <th>Email</th>
-  <th>Username</th>
-  <th>Message</th>
-  <th>Date</th>
-</thead>
-<tbody>
-{{#each feedbacks }}
-  <tr>
-    <td>{{user.email}}</td>
-    <td>{{user.username}}</td>
-    <td>{{message}}</td>
-    <td>{{createdAt}}</td>
-  </tr>
-  {{/each}}
-</tbody>
-</table>
+ {{> feedback_items this}}
+</section>
+
+<script src="/js/feedback.js"></script>
+
