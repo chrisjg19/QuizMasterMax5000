@@ -10,7 +10,7 @@ const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8000;
 
 // Set up sessions
 const sess = {
@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 sequelize.sync().then(() => {
+  //it changed for heroku deployment(use process.env.PORT)
   app.listen(PORT, () =>
     console.log(`Now listening @  http://localhost:${PORT}`)
   );
