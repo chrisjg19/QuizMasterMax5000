@@ -1,21 +1,19 @@
 <!-- Form to handle quiz -->
 <div class="container quiz-container col-6 mt-5 mb-5 p-4">
+  {{> navigation }}
       <div class="d-flex flex-column align-items-center">
         <h1>Quiz</h1>
-        <!-- <script id="quiz-template" type="text/x-handlebars-template"> -->
         <div class="question">
+          {{#if quizData }}
           <h2>Question</h2>
           <p>{{#each this.answers}}</p>
           <input type="radio" name="{{../this.id}}" value="{{this}}" />
           <label>{{this}}</label>
           {{/each}}
-          <!-- </script> -->
+          {{/if}}
         </div>
       </div>
       <div id="next-btn" class="d-flex justify-content-end pe-5">
         <button class="btn btn-warning" type="submit">Next</button>
       </div>
     </div>
-
-    const quizTemplate =
-    Handlebars.compile(document.getElementById("quiz-template").innerHTML);

@@ -42,6 +42,30 @@ router.get("/logout", (req, res) => {
   }
 });
 
+router.post('/signup', async (req, res) => {
+  try { 
+    let { email, password, username } = req.body;
+
+    const uniqueEmailCheck = await User.count({ where: { email: req.body.email }})
+    if(uniqueEmailCheck > 0) {
+      res.status(400).json({ message: 'That email already exists' });
+      return;
+    }
+    const newUser = await User.create({
+      username: username,
+      email: email,
+      password: password
+    });
+    sendSignupMail(email);
+    res.json({ user: newUser, message: "You are now signed up!" });
+  } catch (error) {
+    console.error(`There was an error creating the user: ${error}`);
+  }
+});
+
+
+
+
 router.post("/signup", async (req, res) => {
   try {
     let { email, password, username } = req.body;
@@ -77,8 +101,5 @@ username:
     res.status(400).json(err);
   }
 });
-
-
-
 
 module.exports = router;

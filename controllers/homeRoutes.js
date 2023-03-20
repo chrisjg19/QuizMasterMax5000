@@ -83,4 +83,10 @@ router.get("/logout", withAuth, (req, res) => {
     res.status(402).end();
   }
 });
+
+router.get("/quiz", (req, res) => {
+  const quizData = JSON.parse(req.query.data);
+  res.render("quiz", { quizData });
+});
+
 module.exports = router;
