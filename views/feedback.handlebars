@@ -1,18 +1,21 @@
-
-<section>
+{{> header}}
+<section  class="container d-flex justify-content-center align-items-center">
   
     <h2>Create new Feedback</h2>
     <form class="feedbackFormHandler">
       
         <div>
             <label for="">Feedback</label>
-            <textarea rows="10" cols="60" style="" id="messageInput"></textarea>
+            <textarea rows="10" cols="60"  id="messageInput"></textarea>
             <textarea id="userIdInput" style="display:none" >{{userId}}</textarea>
         </div>
         <button type="submit"  class="btn btn-danger" >Send Feedback</button>
     </form>
-    
+ </section>
+<section  class="container d-flex justify-content-center align-items-center">
+
  {{> feedback_items this}}
 </section>
+
 <script src="/js/feedback.js"></script>
 

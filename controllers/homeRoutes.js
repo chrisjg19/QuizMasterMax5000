@@ -3,6 +3,7 @@ const { User } = require("../models");
 const Feedback = require("../models/Feedback");
 const withAuth = require("../utils/auth");
 //const dashboard=require("../views/dashboard")
+const sequelize = require("sequelize");
 
 router.get("/", withAuth, async (req, res) => {
   try {
@@ -55,7 +56,13 @@ router.get("/feedback", withAuth, async (req, res) => {
   const feedbacks = await Feedback.findAll({
     raw: true,
     nest: true,
-
+      attributes: [
+          'id',
+          [sequelize.fn('date_format', sequelize.col('created_at'), '%m-%d-%Y %H:%m:%s'), 'created_at'],
+          "message",
+          "user_id"
+      ],
+  
     include:[
         {
             model:User,
