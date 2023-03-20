@@ -1,9 +1,9 @@
 const feedbackFormHandler = async (event) => {
   event.preventDefault();
-  // http://localhost:3001/feedback?post-text=hello
-  const userId = document.querySelector("#userIdInput").value.trim();
+ // http://localhost:3001/feedback?post-text=hello
+  const userId =document.querySelector("#userIdInput").value.trim();
   const message = document.querySelector("#messageInput").value.trim();
-  console.log(userId, message);
+  console.log(userId, message)
   /*
 fetch("/api/feedbacks", {
   method:"POST",
@@ -38,11 +38,11 @@ fetch("/api/feedbacks", {
     } else {
       alert("Failed to feedbackSend." + response.message); // this is error Message
     }
-  } else {
-    console.log("userid ve messag alinamadi");
-  }
+  }else{ console.log("userid ve messag alinamadi")}
 };
 
 document
   .querySelector(".feedbackFormHandler")
   .addEventListener("submit", feedbackFormHandler);
+
+
