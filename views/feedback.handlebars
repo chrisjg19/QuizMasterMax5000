@@ -1,6 +1,5 @@
 
 <section>
-  {{#unless loggedIn}}
   
     <h2>Create new Feedback</h2>
     <form class="feedbackFormHandler">
@@ -8,15 +7,12 @@
         <div>
             <label for="">Feedback</label>
             <textarea rows="10" cols="60" style="" id="messageInput"></textarea>
-            <textarea id="userIdInput" style="display:none" >
-              {{userId}}
-            </textarea>
+            <textarea id="userIdInput" style="display:none" >{{userId}}</textarea>
         </div>
         <button type="submit"  class="btn btn-danger" >Send Feedback</button>
     </form>
- {{/unless}}
     
- {{> feedbacks }}
+ {{> feedback_items this}}
 </section>
 <script src="/js/feedback.js"></script>
 

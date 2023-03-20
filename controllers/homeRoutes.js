@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models");
 const Feedback  = require("../models/Feedback");
 const withAuth = require("../utils/auth");
-const dashboard=require("../views/dashboard")
+//const dashboard=require("../views/dashboard")
 
 router.get("/", withAuth, async (req, res) => {
   try {
@@ -55,9 +55,10 @@ router.get("/feedback", withAuth, async (req, res) => {
         {
             model:User,
             attributes: { exclude: ["password"] },
-    }]
+      }],
+      order:[["id","desc"]]
     })
-    res.render("feedback",{feedbacks:feedbacks, userId:req.session.user_id});
+    res.render("feedback",{feedbacks:feedbacks, userId:req.session.user_id,logged_in:req.session.logged_in});
 
 
 });
