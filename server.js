@@ -34,7 +34,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 sequelize.sync().then(() => {
-  app.listen(PORT, () =>
+  //it changed for heroku deployment(use process.env.PORT)
+  app.listen(process.env.PORT ||3001, () =>
     console.log(`Now listening @  http://localhost:${PORT}`)
   );
 });
