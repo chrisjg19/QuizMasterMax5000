@@ -1,14 +1,21 @@
 <!-- Form to handle quiz -->
-<script id="quiz-template" type="text/x-handlebars-template">
-    {{#each questions}}
-    <div class="question">
-        <h2>{{this.question}}</h2>
-        {{#each this.answers}}
-        <input type="radio" name="{{../this.id}}" value="{{this}}">
-        <label>{{this}}</label>
-        {{/each}}
+<div class="container quiz-container col-6 mt-5 mb-5 p-4">
+      <div class="d-flex flex-column align-items-center">
+        <h1>Quiz</h1>
+        <!-- <script id="quiz-template" type="text/x-handlebars-template"> -->
+        <div class="question">
+          <h2>Question</h2>
+          <p>{{#each this.answers}}</p>
+          <input type="radio" name="{{../this.id}}" value="{{this}}" />
+          <label>{{this}}</label>
+          {{/each}}
+          <!-- </script> -->
+        </div>
+      </div>
+      <div id="next-btn" class="d-flex justify-content-end pe-5">
+        <button class="btn btn-warning" type="submit">Next</button>
+      </div>
     </div>
-    {{/each}}
-</script>
 
-const quizTemplate = Handlebars.compile(document.getElementById("quiz-template").innerHTML);
+    const quizTemplate =
+    Handlebars.compile(document.getElementById("quiz-template").innerHTML);
