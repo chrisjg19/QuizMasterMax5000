@@ -1,10 +1,14 @@
-  {{#each this}}
+  {{#each userId}}
+  {{#each message}}
+ 
+
     <section class="feedback">
         <div class="meta">
-            {{userId}}
+            {{this}}
         </div>
         <div class="text">
-            {{message}}
+            {{this}}
         </div>
     </section>
-    {{/each}}
+{{/each}}
+{{/each}}
