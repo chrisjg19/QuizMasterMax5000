@@ -58,7 +58,7 @@ username:
       res.status(400).json({ message: "Select an other Username" });
       return;
     }
-    // user oluşturulması lazım password bcrypt 'le olacak
+   
     let userObj = await User.create({
       username: username,
       email: email,

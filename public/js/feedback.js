@@ -25,7 +25,7 @@ fetch("/api/feedbacks", {
     alert(err))
   };
 */
-
+//call userid and message
   if (userId && message) {
     const response = await fetch("/api/feedbacks", {
       method: "POST",
